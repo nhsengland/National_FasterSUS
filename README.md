@@ -1,94 +1,79 @@
-# {PROJECT NAME}
+# National FasterSUS (Daily SUS+) - Elective Reconciliation - South West
 ## NHS England South West Intelligence and Insights
 
-### About the Project
+### What is FasterSUS?
 
-{ADD EXPERIMENTAL STATUS BADGE IF PROJECT IS IN DEVELOPMENT}
-[![status: experimental](https://github.com/GIScience/badges/raw/master/status/experimental.svg)](https://github.com/GIScience/badges#experimental)
+The importance of timely data, highlighted during the Covid-19 response, has improved planning and decision-making across all levels. To build on this, the Faster SUS+ programme was introduced, requiring NHS-funded acute healthcare providers to submit CDS data weekly to NHS Digital. The programme aims to ensure timely data submissions, reduce provider burdens through central reporting, and enhance planning and decision-making for service improvements and better patient outcomes.
 
-This repository holds code for the {PROJECT NAME} {SHORT DESCRIPTION}
+National Reporting Hosts a Faster SUS+ Programme page on Futures: [National JAR Report](https://future.nhs.uk/OIforC/view?objectID=21697168)
 
-_**Note:** Only public or fake data are shared in this repository._
+### What is SUS+?
 
-### Project Stucture
+The Secondary Uses Service (SUS+) is the single, comprehensive repository for healthcare data in England which enables a range of reporting and analyses to support the NHS in the delivery of healthcare services since 2008.
+SUS+ is a secure trusted data warehouse that stores this patient-level information in line with national standards and applies complex derivations which support national tariff policy and secondary analysis. 
+Access to the SUS+ portal is managed using Role-Based Access Control (RBAC) which grants appropriate auditable access levels to identifiable, anonymised or pseudonymised data based on the users job role.
+Submission to SUS+ is via Message Exchange for Social Care and Health (MESH) for Commissioning Dataset (CDS) XML interchanges.
+SUS+ is monitored by the Cyber Security Operations Centre (CSOC) and complies with all Information Governance directives, especially in terms of processing and disseminating identifiable data.
+SUS+ has been in-house at the NHS England Digital Transformation Directorate since 2016 and has a fully automated single queue processing system, allowing the processing of CDS XML interchanges on arrival. Data with additional derived values (including HRGs) are made available to users via the SUS+ portal immediately on acceptance. 
 
-- The main code is found in the root of the repository (see Usage below for more information)
-- The accompanying [report](./reports/report.pdf) is also available in the `reports` folder
-- More information about the code usage can be found in the [model card](./model_card.md)
-- {OTHER REPO STRUCTURE}
+From September 2022, SUS+ has been running on Cloud infrastructure, meeting the demands of daily, weekly, and monthly data processing at twice the speed of “on prem” infrastructure.
 
-### Built With
+NHS Digital SUS Website: [NHSD SUS Website](https://digital.nhs.uk/services/secondary-uses-service-sus)
 
-{LIST SOFTWARE USED TO CREATE PROJECT}
+### FasterSUS Compliance
 
-[R Studio](http://www.rstudio.com/.)  
-[R Statistical Software](https://www.R-project.org/.)  
-[SQL SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)  
-[!Python v3.8](https://www.python.org/downloads/release/python-380/)  
+#### Compliance Criteria
 
-- {LIST OF MAIN PACKAGE VERSIONS}
+The Faster SUS technical guidance outlines the requirements for data submission, highlighting the importance of compliance. Key points include: data must be submitted weekly; the most recent activity should be within 14 days of the submission date; incomplete coding is expected and will improve over time; and if no separate FasterSUS submission is made, the monthly refresh should include data up to the day before submission, not just the previous full month.  
+
+Compliance is monitored Centrally by the National PAT team, with FasterSUS DQ Monitoring Reports and Forms apart of the wider National Elective Data Quality Priority.  
+- FasterSUS DQ Monitoring Reports page on Futures: [National FasterSUS DQ Monitoring](https://future.nhs.uk/OIforC/view?objectID=27871152)  
+- South West Monitoring Tool page on Futures: [FasterSUS Compliance Dashboard](https://future.nhs.uk/SouthWestAnalytics/view?objectID=37408880)  
+- South West Monitoring Tool on OKTA: [Tableau link: FasterSUS Compliance Dashboard](https://tabanalytics.data.england.nhs.uk/#/views/SouthWestFasterSUSComplianceDashboard_17145757789570/Coverpage?=null,&:iid=2)
+
+### Scripts
+
+#### Provider Focus
+📝 National FasterSUS methodology - Admitted patient care script - Provider  
+📝 National FasterSUS methodology - Outpatient Attendance script - Provider  
+
+#### Commissioner Focus (not used for complaince reports)
+📝 National FasterSUS methodology - Admitted patient care script - Comm  
+📝 National FasterSUS methodology - Outpatient Attendance script - Comm  
+
+### About the Scripts
+The FasterSUS scripts are ran using National Planning logic, the below applies to both APC and OP scripts:  
+- Acute Provider Only  
+- Consultant led Specific Acute activity only  
+- Treatment Function Code 360 is excluded  
+- Dominant_Episode_Flag = 1  
+- Excluding Private patients, Reciprocal OSVs, Non-reciprocal OSVs & Devolved Administration
+
+🏥 **Admitted patient care script**  
+*This script covers both elective and non-elective hospital activity, sourced from the National FasterSUS Admitted Patient Care SUS table*  
+
+👨‍⚕️ **Outpatient Attendance script**  
+*This script covers Outpatient attendances, sourced from the National FasterSUS Outpatient SUS table. Logic applied as above with an additional exclusion for Treatment Function Code 812*  
+
+### Built With SQL in NCDR (National Reporting has not moved over to UDAL yet - ETA May). 
+
+🛢️[SQL SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)  
+🖲️[NCDR](https://rdsweb101.gemcsu.nhs.uk/RDWeb/Pages/en-US/login.aspx?ReturnUrl=%2fRDWeb%2fPages%2frdp%2fcpub-NHSE_-_Analysts-NHSE_-_Analysts-CmsRdsh.rdp)
 
 
-### Getting Started
-
-#### Installation
-
-To get a local copy up and running follow these simple steps.
-
-To clone the repo:
-
-`git clone https://github.com/nhsx/{REPO NAME}`
-
-{ADDITIONAL TECHNICAL SUPPORT AND NEEDS} 
-
-### Usage
-{DESCRIPTION OF CODE}
-{DESCRIPTION OF PROCESS AND TECHNIQUES UTILISED}
-{METHODOLOGY USED}
-
-#### Outputs
-{LIST AND DESCRIPTION OF OUTPUTS}
-
-{NOTES ON REPRODUCIBILITY OF RESULTS}
-
-#### Datasets
-{DESCRIPTION AND LINKS TO DATASETS}
-
-{LINK TO FAKE DATA TO SUPPORT INITAIL CODE RUNS}
-
-### Roadmap
-
-See the {LINK TO REPO ISSUES} for a list of proposed features (and known issues).
-
-### Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-_See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidance._
-
-### License
-
-Unless stated otherwise, the codebase is released under [the MIT Licence][mit].
-This covers both the codebase and any sample code in the documentation.
-
-_See [LICENSE](./LICENSE) for more information._
-
-The documentation is [© Crown copyright][copyright] and available under the terms
-of the [Open Government 3.0][ogl] licence.
-
-[mit]: LICENCE
-[copyright]: http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/
-[ogl]: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+#### Datasets in the NHSE_SUSPlus_Faster_SUS Repository on NCDR
+  
+🛢️ tbl_Data_SUS_APCE  
+🛢️ tbl_Data_SUS_APCS *(not used for compliance reports)*  
+🛢️ tbl_Data_SUS_OPA
 
 ### Contact
 
-To find out more about the South West Intelligence and Insights Team visit our [South West Intelligence and Insights Team Futures Page](https://future.nhs.uk/SouthWestAnalytics)) or get in touch at [england.southwestanalytics@nhs.net](mailto:england.southwestanalytics@nhs.net).
+To find out more about the South West Intelligence and Insights Team visit our [South West Intelligence and Insights Team Futures Page](https://future.nhs.uk/SouthWestAnalytics)) or get in touch at [england.southwestanalytics@nhs.net](mailto:england.southwestanalytics@nhs.net). Alternatively, Please feel free to reach out to me directly:
 
-<!-- ### Acknowledgements -->
+📧 Email: [Destiny.Bradley@nhs.net](mailto:Destiny.Bradley@nhs.net)  
+💬 Teams: [Join my Teams](https://teams.microsoft.com/l/chat/0/0?users=<destiny.bradley@nhs.net)
+
+### Acknowledgements
+Thanks to Bernardo Detanico for his ongoing support in applying National Logic.
 
