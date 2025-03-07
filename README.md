@@ -10,10 +10,13 @@ National Reporting Hosts a Faster SUS+ Programme page on Futures: [National JAR 
 ### What is SUS+?
 
 The Secondary Uses Service (SUS+) is the single, comprehensive repository for healthcare data in England which enables a range of reporting and analyses to support the NHS in the delivery of healthcare services since 2008.
-SUS+ is a secure trusted data warehouse that stores this patient-level information in line with national standards and applies complex derivations which support national tariff policy and secondary analysis. 
+SUS+ is a secure trusted data warehouse that stores this patient-level information in line with national standards and applies complex derivations which support national tariff policy and secondary analysis.   
+
 Access to the SUS+ portal is managed using Role-Based Access Control (RBAC) which grants appropriate auditable access levels to identifiable, anonymised or pseudonymised data based on the users job role.
-Submission to SUS+ is via Message Exchange for Social Care and Health (MESH) for Commissioning Dataset (CDS) XML interchanges.
-SUS+ is monitored by the Cyber Security Operations Centre (CSOC) and complies with all Information Governance directives, especially in terms of processing and disseminating identifiable data.
+Submission to SUS+ is via Message Exchange for Social Care and Health (MESH) for Commissioning Dataset (CDS) XML interchanges.  
+
+SUS+ is monitored by the Cyber Security Operations Centre (CSOC) and complies with all Information Governance directives, especially in terms of processing and disseminating identifiable data.  
+
 SUS+ has been in-house at the NHS England Digital Transformation Directorate since 2016 and has a fully automated single queue processing system, allowing the processing of CDS XML interchanges on arrival. Data with additional derived values (including HRGs) are made available to users via the SUS+ portal immediately on acceptance. 
 
 From September 2022, SUS+ has been running on Cloud infrastructure, meeting the demands of daily, weekly, and monthly data processing at twice the speed of “on prem” infrastructure.
