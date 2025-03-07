@@ -1,4 +1,4 @@
-# National FasterSUS (Daily SUS+) - Elective Reconciliation - South West
+# National FasterSUS (Daily SUS+) - Reconciliation - South West
 ## NHS England South West Intelligence and Insights
 
 ### What is FasterSUS?
